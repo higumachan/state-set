@@ -106,12 +106,6 @@ pub trait State: Sized {
     /// ```
     const NUM_STATES: u32;
 
-    // A compile-time check that `Self::NUM_STATES` is at most 64.
-    #[doc(hidden)]
-    const CHECK_NUM_STATES_AT_MOST_64: () = {
-        let _ = 64 - Self::NUM_STATES;
-    };
-
     /// Converts `self` into an index, which is an integer from `0` to `Self::NUM_STATES - 1`.
     ///
     /// # Examples
